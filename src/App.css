@@ -1,0 +1,27 @@
+.App {
+  text-align: center;
+  background-image: url("background.jpg");
+  display: grid
+}
+
+.App-logo {
+  height: 40vmin;
+}
+
+.App-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-content {
+  min-width: 90%;
+}
+
+.App-link {
+  color: #09d3ac;
+}
