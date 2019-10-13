@@ -1,0 +1,6 @@
+#my-table{width:100%; font-size:24px; text-align:left}
+#my-table td{width:33%;}
+#my-table th{width:33%;}
+
+.my-button{font-size:24px}
+.transactions-header{layout:grid; grid-template-columns: 100px 300px 100px}
