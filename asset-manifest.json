@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/itu/static/css/main.d97578cb.chunk.css",
+    "main.js": "/itu/static/js/main.a33712bb.chunk.js",
+    "main.js.map": "/itu/static/js/main.a33712bb.chunk.js.map",
+    "runtime-main.js": "/itu/static/js/runtime-main.ca0bc3cc.js",
+    "runtime-main.js.map": "/itu/static/js/runtime-main.ca0bc3cc.js.map",
+    "static/js/2.af150ed9.chunk.js": "/itu/static/js/2.af150ed9.chunk.js",
+    "static/js/2.af150ed9.chunk.js.map": "/itu/static/js/2.af150ed9.chunk.js.map",
+    "index.html": "/itu/index.html",
+    "precache-manifest.5e70b6e24a7d0908f3196d2c826566fa.js": "/itu/precache-manifest.5e70b6e24a7d0908f3196d2c826566fa.js",
+    "service-worker.js": "/itu/service-worker.js",
+    "static/css/main.d97578cb.chunk.css.map": "/itu/static/css/main.d97578cb.chunk.css.map",
+    "static/media/App.css": "/itu/static/media/background.b401aedb.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ca0bc3cc.js",
+    "static/js/2.af150ed9.chunk.js",
+    "static/css/main.d97578cb.chunk.css",
+    "static/js/main.a33712bb.chunk.js"
+  ]
+}
