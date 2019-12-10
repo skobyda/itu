@@ -86,7 +86,7 @@ export class CreateTransaction extends React.Component {
         const d = new Date();
         const newTransactions = [...loggedUser.transactions];
         newTransactions.push({
-            dateCreate: d.getDate() + d.getMonth + d.getFullYear,
+            dateCreate: "" + d.getDate() + "-" + d.getMonth() + "-" + d.getFullYear(),
             amount: amount,
             incoming: "O",
             accountId: loggedUser.iban,
@@ -95,6 +95,7 @@ export class CreateTransaction extends React.Component {
         });
         loggedUser.transactions = newTransactions;
         appOnValueChanged("loggedUser", loggedUser);
+        this.close();
     }
 
     render() {
@@ -150,7 +151,7 @@ export class Transactions extends React.Component {
     render() {
         const TransactionPanel = (transaction) => {
             return (
-                <ExpansionPanel key={transaction.iban}>
+                <ExpansionPanel key={transaction.iban + transaction.amount + transaction.dateCreated}>
                   <ExpansionPanelSummary
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel1c-content"
@@ -178,7 +179,8 @@ export class Transactions extends React.Component {
                             <tr>
                               <td><b>Sender:</b> { transaction.iban }</td>
                               <td><b>Receiver:</b> { transaction.accountId }</td>
-                              <td><b>Approved by:</b> { transaction.approved }</td>
+                              { transaction.incoming === "O" &&
+                              <td><b>Approved by:</b> { transaction.approvedBy }</td>}
                             </tr>
                             <tr>
                               <td><b>Transaction created:</b> { transaction.dateCreate }</td>

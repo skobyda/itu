@@ -120,6 +120,7 @@ export class Login extends React.Component {
                         incoming: "I",
                         accountId: "SK02602020000000008342",
                         approved: true,
+                        approvedBy: "Jurk Murko",
                         iban: "SK32141943292843294",
                     },
                     {
@@ -131,6 +132,7 @@ export class Login extends React.Component {
                         incoming: "O",
                         accountId: "SK02602020000000008342",
                         approved: true,
+                        approvedBy: "Jurk Murko",
                         iban: "SK32141943292843294"
                     },
                     {
@@ -142,6 +144,7 @@ export class Login extends React.Component {
                         incoming: "I",
                         accountId: "SK02602020000000008342",
                         approved: true,
+                        approvedBy: "Jurk Murko",
                         iban: "SK32141943292843294"
                     },
                 ],

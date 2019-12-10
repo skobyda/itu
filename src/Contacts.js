@@ -67,6 +67,7 @@ class CreateContact extends React.Component {
         });
         loggedUser.contacts = newContacts;
         appOnValueChanged("loggedUser", loggedUser);
+        this.close();
     }
 
     render() {
@@ -165,6 +166,7 @@ class DeleteContact extends React.Component {
 
         loggedUser.contacts = newContacts;
         appOnValueChanged("loggedUser", loggedUser);
+        this.close();
     }
 
     render() {
@@ -240,7 +242,7 @@ export default class Contacts extends React.Component {
                       </table>
                   </ExpansionPanelDetails>
                   <ExpansionPanelActions>
-                      <CreateTransaction iban={contact.iban} amount={0} text="Make a Transcation" />
+                      <CreateTransaction loggedUser={this.props.loggedUser} appOnValueChanged={this.props.appOnValueChanged} iban={contact.iban} amount={0} text="Make a Transcation" />
                       <DeleteContact contact={contact} loggedUser={this.props.loggedUser} appOnValueChanged={this.props.appOnValueChanged}/>
                   </ExpansionPanelActions>
                 </ExpansionPanel>
