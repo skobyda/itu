@@ -6,15 +6,20 @@ import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 
+
+
 import { UserPanel, Login } from './userPanel.js';
 import { Transactions } from './Transactions.js';
 import Contacts from './Contacts.js';
 import Supervisors from './Supervisors.js';
+import Notes from './Notes.js';
+
 
 const menu = { // index of menu items
     TRANSACTIONS: 0,
     CONTACTS: 1,
     SUPERVISORS: 2,
+    NOTES: 3,
 }
 
 class App extends React.Component {
@@ -37,8 +42,8 @@ class App extends React.Component {
     componentDidMount() {
 
         // const onValueChanged = this.onValueChanged;
-        let request= new XMLHttpRequest();
-        request.onreadystatechange = function() {
+        let request = new XMLHttpRequest();
+        request.onreadystatechange = function () {
             if (this.readyState === 4 && this.status === 200) {
                 console.log("RETURNED:", this.responseText);
                 // const supervisors = JSON.parse(this.responseText);
@@ -51,37 +56,43 @@ class App extends React.Component {
     }
 
     render() {
-        const { loggedUser, page} = this.state;
+        const { loggedUser, page } = this.state;
 
         console.log(this.state);
+        //console.log("habadub");
         return (
             <div className="App">
                 {!loggedUser ? <Login id="login" appOnValueChanged={this.onValueChanged} />
-                : <>
-                    <div>
-                        <AppBar position="static">
-                            <Tabs aria-label="menu"
-                                onChange={(event, value) => this.onValueChanged("page", value)}
-                                value={page}
-                            >
-                                <Tab label={<span className="my-button">Transactions</span>} />
-                                <Tab label={<span className="my-button">Contacts</span>} />
-                                <Tab label={<span className="my-button">Supervisors</span>} />
-                            </Tabs>
-                        </AppBar>
-                        <UserPanel appOnValueChanged={this.onValueChanged} loggedUser={loggedUser} />
-                    </div>
-                    <header className="App-page">
-                        <div className="App-content">
-                            { page === menu.TRANSACTIONS && <Transactions transactions={loggedUser.transactions} loggedUser={loggedUser} appOnValueChanged={this.onValueChanged} /> }
-                            { page === menu.CONTACTS && <Contacts contacts={loggedUser.contacts} loggedUser={loggedUser} appOnValueChanged={this.onValueChanged} /> }
-                            { page === menu.SUPERVISORS && <Supervisors supervisors={loggedUser.supervisors} loggedUser={loggedUser} appOnValueChanged={this.onValueChanged} /> }
+                    : <>
+                        <div>
+                            <AppBar position="static">
+                                <Tabs aria-label="menu"
+                                    onChange={(event, value) => this.onValueChanged("page", value)}
+                                    value={page}
+                                >
+                                    <Tab label={<span className="my-button">Transactions</span>} />
+                                    <Tab label={<span className="my-button">Contacts</span>} />
+                                    <Tab label={<span className="my-button">Supervisors</span>} />
+                                    <Tab label={<span className="my-button">Notes</span>} />
+                                </Tabs>
+                            </AppBar>
+
+                            <UserPanel appOnValueChanged={this.onValueChanged} loggedUser={loggedUser} />
                         </div>
-                    </header>
-                </>}
+                        <header className="App-page">
+
+                            <div className="App-content">
+                                {page === menu.TRANSACTIONS && <Transactions transactions={loggedUser.transactions} loggedUser={loggedUser} appOnValueChanged={this.onValueChanged} />}
+                                {page === menu.CONTACTS && <Contacts contacts={loggedUser.contacts} loggedUser={loggedUser} appOnValueChanged={this.onValueChanged} />}
+                                {page === menu.SUPERVISORS && <Supervisors supervisors={loggedUser.supervisors} loggedUser={loggedUser} appOnValueChanged={this.onValueChanged} />}
+                                {page === menu.NOTES && <Notes notes={loggedUser.notes} loggedUser={loggedUser} appOnValueChanged={this.onValueChanged} />}
+                            </div>
+                        </header>
+                    </>}
             </div>
         );
     }
 }
 
 export default App;
+
