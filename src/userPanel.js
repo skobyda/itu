@@ -7,6 +7,8 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import TextField from '@material-ui/core/TextField';
+//import Card from '@material-ui/core/Card';
+
 
 class Logout extends React.Component {
     constructor(props) {
@@ -48,6 +50,12 @@ class Logout extends React.Component {
                         Logout
                     </span>
                 </Button>
+
+
+
+
+
+
                 <Dialog open={this.state.showModal}
                     onClose={this.close}
                     aria-labelledby={id + "-dialog"}
@@ -81,8 +89,8 @@ export class Login extends React.Component {
         super(props);
 
         this.state = {
-            email: "",
-            password: ""
+            email: "m@m.com",//changed
+            password: "123"//changed
         };
 
         this.onValueChanged = this.onValueChanged.bind(this);
@@ -105,7 +113,7 @@ export class Login extends React.Component {
         const callStr = JSON.stringify(call); */
         // TODO replace dummy data with backend
 
-        if (data.email === "simon.kobyda@gmail.com" && password === "123456789") {
+        if (data.email === "m@m.com" && password === "123") {
             const loggedUser = {
                 name: "Simon Kobyda",
                 iban: "SK02602020000000008342",
@@ -181,6 +189,38 @@ export class Login extends React.Component {
                         mail: "whatevermail@gmail.com",
                         phoneNumber: "+420854398148"
                     },
+                ],
+                notes: [
+                    {
+                        date: "15-1-2020",
+                        createDate: "25-11-2019",
+                        shortNote: "Charita prispevok",
+                        note: "Prispiet na charitu pre obete snp, zbierka vyhlasena kostolom"
+
+                    },
+                    {
+                        date: "1-2-2020",
+                        createDate: "26-10-2018",
+                        shortNote: "Syn narodeniny",
+                        note: "Poslat peniaze k narodeninam syna Mateja"
+
+                    },
+                    {
+                        date: "10-2-2020",
+                        createDate: "26-11-2019",
+                        shortNote: "Chladnicka splatky",
+                        note: "Zaplatit prvu splatku za novu chladnicku kupenu v nay elektro"
+
+                    },
+
+                    {
+                        date: "20-2-2020",
+                        createDate: "20-12-2019",
+                        shortNote: "Vnuk skusky",
+                        note: "Poslat peniaze vnukovi za spravene skusky podla vysledkov"
+
+                    },
+
                 ]
             };
 
@@ -217,8 +257,8 @@ export class Login extends React.Component {
                         />
                     </Box>
                     <span style={{ color: "red" }}>
-                        { this.state.errorMessage && (<br />) }
-                        { this.state.errorMessage }
+                        {this.state.errorMessage && (<br />)}
+                        {this.state.errorMessage}
                     </span>
                 </DialogContent>
                 <DialogActions>
@@ -238,7 +278,9 @@ export const UserPanel = ({ appOnValueChanged, loggedUser }) => {
 
     return (
         <Box display="flex" m={1} p={1} bgcolor="background.paper" css={{ float: "right" }}>
+
             <Logout id={id} appOnValueChanged={appOnValueChanged} />
         </Box>
     );
 }
+
